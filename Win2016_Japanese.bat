@@ -1,4 +1,3 @@
-rem Please set your password to Metadata of the server
 @echo off
 REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager" /v DoNotOpenServerManagerAtLogon >> C:\Users\Administrator\Desktop\log.txt
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager" /v DoNotOpenServerManagerAtLogon /t REG_DWORD /d 1 /f >> C:\Users\Administrator\Desktop\log.txt
