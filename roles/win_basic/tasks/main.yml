@@ -1,0 +1,32 @@
+---
+
+
+- name: install langpack
+  tags: win_basic
+  win_shell:
+     Add-WindowsPackage -PackagePath C:\Users\Administrator\Desktop\lp_9a666295ebc1052c4c5ffbfa18368dfddebcd69a.cab -Online
+
+- name: Set timezone 
+  tags: win_basic 
+  win_timezone:
+      timezone: Tokyo Standard Time
+
+- name: Set Region
+  tags: win_basic 
+  win_region:
+      copy_settings: True
+      location: "122"
+      format: ja-JP
+      unicode_language: ja-JP
+
+- name: configure lang 
+  tags: win_basic 
+  win_shell: "{{ item }}" 
+  with_items:
+    - Set-WinUILanguageOverride -Language ja-JP 
+    - Set-WinCultureFromLanguageListOptOut -OptOut $False 
+    - Set-WinUserLanguageList -LanguageList ja-JP,en-US -Force
+    - Set-WinSystemLocale -SystemLocale ja-JP 
+    - Set-WinHomeLocation -GeoId 0x7A 
+    - Set-WinDefaultInputMethodOverride -InputTip "0411:00000411" 
+

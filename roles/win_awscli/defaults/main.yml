@@ -1,0 +1,7 @@
+---
+
+ansible_setup_workspace: C:\ansible_setup
+awscli_setup_workspace: "{{ansible_setup_workspace}}\\awscli"
+awscli_install_dir: C:\awscli
+awscli_product_id: 89A26CEA-0DBD-4549-B769-592B1354E635
+

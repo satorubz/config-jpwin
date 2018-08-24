@@ -1,0 +1,7 @@
+---
+##---------------------------------
+- hosts: win
+  roles:
+    - win_basic
+    - win_awscli
+    - iis

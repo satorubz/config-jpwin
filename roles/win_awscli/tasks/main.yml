@@ -1,0 +1,29 @@
+---
+
+- name: create installer dir
+  tags: win_awscli
+  win_file:
+    path: "{{awscli_setup_workspace}}"
+    state: directory
+
+- name: Xfer installer of awscli 
+  tags: win_awscli
+  win_copy: 
+     src: files/AWSCLI64.msi
+     dest: "{{awscli_setup_workspace}}"
+
+#- name: AWSCLI Install
+#  tags: win_awscli
+#  win_msi:
+#      path: "{{awscli_setup_workspace}}\\AWSCLI64.msi" 
+#    extra_args: /qn /quiet /passive /log "{{awscli_setup_workspace}}\\awscli64.msi.log" AWSCLI64="{{awscli_install_dir}}"
+
+- name: AWSCLI Install
+  tags: win_awscli
+  win_package:
+      path="{{awscli_setup_workspace}}\\AWSCLI64.msi"
+      Product_Id="{{awscli_product_id}}"
+      arguments=/qn /quiet /passive /log "{{awscli_setup_workspace}}\\awscli64.msi.log" AWSCLI64="{{awscli_install_dir}}"
+
+
+
