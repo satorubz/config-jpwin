@@ -1,4 +1,3 @@
-@echo off
 REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager" /v DoNotOpenServerManagerAtLogon >> C:\Users\Administrator\Desktop\log.txt
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager" /v DoNotOpenServerManagerAtLogon /t REG_DWORD /d 1 /f >> C:\Users\Administrator\Desktop\log.txt
 REG QUERY "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager" /v DoNotOpenServerManagerAtLogon >> C:\Users\Administrator\Desktop\log.txt
@@ -8,7 +7,7 @@ ECHO $LpUrl = "http://fg.v4.download.windowsupdate.com/c/msdownload/update/softw
 ECHO $LpFile = "lp_9a666295ebc1052c4c5ffbfa18368dfddebcd69a.cab" >> C:\Users\Administrator\Desktop\ProvScript.ps1
 ECHO $LpTemp = "C:\Users\Administrator\Desktop\lp_9a666295ebc1052c4c5ffbfa18368dfddebcd69a.cab" >> C:\Users\Administrator\Desktop\ProvScript.ps1
 ECHO Start-BitsTransfer -Source $LpUrl$LpFile -Destination $LpTemp -Priority High >> C:\Users\Administrator\Desktop\ProvScript.ps1
-ECHO Disable-NetAdapter -Name "PublicNetwork-A" -Confirm:$false >> C:\Users\Administrator\Desktop\ProvScript.ps1
+REM ECHO Disable-NetAdapter -Name "PublicNetwork-A" -Confirm:$false >> C:\Users\Administrator\Desktop\ProvScript.ps1
 ECHO Set-WinUserLanguageList -LanguageList ja-JP,en-US -Force >> C:\Users\Administrator\Desktop\ProvScript.ps1
 ECHO Add-WindowsPackage -PackagePath $LpTemp -Online >> C:\Users\Administrator\Desktop\ProvScript.ps1
 ECHO Start-Transcript -path "C:\Users\Administrator\Desktop\SetupLang.log" -append >>C:\Users\Administrator\Desktop\SetupLang.ps1
