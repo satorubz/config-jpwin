@@ -1,6 +1,5 @@
 ECHO Start-Transcript -path "C:\Users\Administrator\Desktop\enable_winrm.log" -append >>C:\Users\Administrator\Desktop\enable_winrm.ps1
 ECHO Invoke-WebRequest -Uri https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -OutFile ConfigureRemotingForAnsible.ps1
-REM ECHO powershell -ExecutionPolicy RemoteSigned .\ConfigureRemotingForAnsible.ps1
 ECHO powershell -ExecutionPolicy RemoteSigned .\ConfigureRemotingForAnsible.ps1 -SkipNetworkProfileCheck
 
 ECHO Stop-Transcript >>C:\Users\Administrator\Desktop\enable_winrm.ps1
