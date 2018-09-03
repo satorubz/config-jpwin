@@ -10,7 +10,7 @@
   tags: win_awscli
   win_copy: 
      src: files/AWSCLI64.msi
-     dest: "{{awscli_setup_workspace}}"
+     dest: "{{awscli_setup_workspace}}\\AWSCLI64.msi"
 
 #- name: AWSCLI Install
 #  tags: win_awscli

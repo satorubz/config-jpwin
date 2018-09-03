@@ -1,5 +1,11 @@
 ---
 
+- name: Xfer installer of langpack 
+  tags: win_basic
+  win_copy:
+       src: files/lp_9a666295ebc1052c4c5ffbfa18368dfddebcd69a.cab
+       dest: C:\Users\Administrator\Desktop\lp_9a666295ebc1052c4c5ffbfa18368dfddebcd69a.cab
+
 
 - name: install langpack
   tags: win_basic
@@ -30,3 +36,11 @@
     - Set-WinHomeLocation -GeoId 0x7A 
     - Set-WinDefaultInputMethodOverride -InputTip "0411:00000411" 
 
+- name: Windows updates 
+  tags: 
+     - win_basic
+     - win_updates
+  win_updates:
+     category_name:
+        - SecurityUpdates
+        - CriticalUpdates
